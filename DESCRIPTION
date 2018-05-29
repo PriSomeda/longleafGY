@@ -1,0 +1,11 @@
+Package: longleafGY
+Title: Growth and yield simulator for Longlef pine (Pinus palustris)
+Version: 1.0.2
+Authors@R: c(person("Salvador", "Gezan", email = "sgezan@ufl.edu", role = c("aut","cre")), 
+           person("Priscila", "Someda-Dias", email = "priscilasomeda@gmail.com", role = "aut"))
+Description: longleafGY is a systems of equations to predict and project growth and yield of Longleaf pine (Pinus palustris) stands with or without thinning using tree- or stand-level information.
+Depends: R (>= 3.3.3)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
