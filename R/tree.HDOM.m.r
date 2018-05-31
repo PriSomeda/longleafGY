@@ -13,13 +13,13 @@
 #' @return A value with Dominant Height (HDOM, m) for the plot.
 #'
 #' @examples
-#' HT <- treedata$HT
+#' HT <- tree.HT(DBH=treedata$DBH, HT=treedata$HT, method=2)$HTFIN
 #' DBH <- treedata$DBH
-#' AREA <- 200
+#' AREA <- 301
 #' tree.HDOM.m(HT=HT, DBH=DBH, AREA=AREA)
 
 
-tree.HDOM.m  <-  function(HT,DBH,AREA){
+tree.HDOM.m  <-  function(HT=NA, DBH=NA, AREA=NA){
                   if(sum(is.na(HT))==0 & sum(is.na(DBH))==0){
                     if(length(HT)==length(DBH)){
                       aux <- data.frame(DBH=DBH,HT=HT,EF=rep(1/(AREA/10000), length(HT)))
@@ -31,10 +31,10 @@ tree.HDOM.m  <-  function(HT,DBH,AREA){
 
                     while(trees<100){
                       trees <- sum(aux$EF[1:i])
-                      wi <- c(rep(1,i-1),(1-((trees-100)/100)))
+                      wi <- c(rep(1,i-1),(1-((trees-100)/100)))/sum(c(rep(1,i-1),(1-((trees-100)/100))))
                       HDOM <- stats::weighted.mean(aux$HT[1:i],wi)
                       i <- i+1
-                     }
+                    }
                   } else {
                       stop("Error: Missing information")
                   }
