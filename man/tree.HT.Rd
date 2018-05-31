@@ -41,13 +41,16 @@ HT <- c(11.8,12.3,NA,NA,15.3,18,12,NA,14.5,NA,NA,NA,NA,NA,10.3,14.6,NA,NA,NA,NA)
 tree.HT(DBH=DBH, HT=HT, AREA=200, AGE=47, method=1)
 
 # Example 2 - Method 2 - Simple DBH-height model
-DBH <- c(9.3,11.1,15.5,9,14.8,27.3,11.4,6.6,12.6,17.5,6.3,7.2,11.5,13.6,7.3,12,11.9,8.1,7.6,5)
-HT <- c(11.8,12.3,NA,NA,15.3,18,12,NA,14.5,NA,NA,NA,NA,NA,10.3,14.6,NA,NA,NA,NA)
+DBH <- treedata$DBH
+HT <- treedata$HT
 tree.HT(DBH=DBH, HT=HT, method=2)
 }
 \references{
 Gonzalez-Benecke et al. (2013) - Individual Tree Diameter, Height, and Volume Functions for Longleaf Pine.
 Forest Science 60(1):43-56; doi:10.5849/forsci.12-074
+}
+\seealso{
+\code{\link{tree.STAND}}
 }
 \author{
 Priscila Someda-Dias, Salvador A. Gezan

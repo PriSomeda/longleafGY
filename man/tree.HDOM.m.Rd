@@ -4,7 +4,7 @@
 \alias{tree.HDOM.m}
 \title{Calculate dominant height for a plot based on tree-level data.}
 \usage{
-tree.HDOM.m(HT, DBH, AREA)
+tree.HDOM.m(HT = NA, DBH = NA, AREA = NA)
 }
 \arguments{
 \item{HT}{Vector of tree heights (m) for a given plot (must be complete).}
@@ -21,9 +21,9 @@ A value with Dominant Height (HDOM, m) for the plot.
 of the tree heights. The provided vector of heights should be complete without missing data.
 }
 \examples{
-HT <- treedata$HT
+HT <- tree.HT(DBH=treedata$DBH, HT=treedata$HT, method=2)$HTFIN
 DBH <- treedata$DBH
-AREA <- 200
+AREA <- 301
 tree.HDOM.m(HT=HT, DBH=DBH, AREA=AREA)
 }
 \author{

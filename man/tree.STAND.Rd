@@ -12,7 +12,7 @@ tree.STAND(DBH, AREA)
 \item{AREA}{Numeric value of the size of the plot (m2).}
 }
 \value{
-A list containing the parameters: 
+A list containing the parameters:
 \itemize{
 \item \code{BA} Basal Area (m2/ha).
 \item \code{N}  Number of trees per hectare.
@@ -23,9 +23,9 @@ A list containing the parameters:
 \code{tree.STAND} Calculates the basal area, number of trees and mean quadratic diameter for a plot based on tree-level data.
 }
 \examples{
-# Example - Stand information from inventory data 
-DBH <- treedata$DBH
-tree.STAND(DBH=DBH, AREA=500)
+# Example - Stand information from inventory data
+DBH <- treedata$DBH[!is.na(treedata$DBH)]
+tree.STAND(DBH=DBH, AREA=301)
 }
 \author{
 Priscila Someda-Dias, Salvador A. Gezan
