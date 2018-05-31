@@ -18,28 +18,34 @@ prepare.tree(TREEID = NA, DBH = NA, HT = NA, AREA = NA, AGE = NA,
 
 \item{AGE}{Numeric value of stand age (years). Required if method = 1.}
 
-\item{method}{Numeric value that identifies the method to estimate missing heights. 1: parametrized DBH-height model, 
+\item{method}{Numeric value that identifies the method to estimate missing heights.
+
+1: parametrized DBH-height model,
+
 2: fits a simple DBH-height model from available measurements. Default method = 2.}
 }
 \value{
-A list containing the following: 
-\itemize{
-\item \code{BA}   Basal Area (m2/ha).
-\item \code{N}    Number of trees per hectarea. 
-\item \code{HDOM} Dominant Height (m).
-\item \code{tree.table} Data frame with all tree data an observed heights (for the ones provided) and estimated heights
+A list containing the following:
+
+\code{- BA}   Basal Area (m2/ha).
+
+\code{- N}    Number of trees per hectarea.
+
+\code{- HDOM} Dominant Height (m).
+
+\code{- tree.table} Data frame with all tree data an observed heights (for the ones provided) and estimated heights
 (for those missing). The data frame contains the columns: TREEID, DBH and HT.
-}
+
 }
 \description{
-\code{prepare.tree} Checks and prepares tree-level data from a single plot and then calculates stand-level 
-parameters such as basal area, number of trees per hectarea and dominant height. The provided vector of total heights 
-can have missing information. If there are missing trees, there are two methods to use: 1) Estimates heights according 
+\code{prepare.tree} Checks and prepares tree-level data from a single plot and then calculates stand-level
+parameters such as basal area, number of trees per hectarea and dominant height. The provided vector of total heights
+can have missing information. If there are missing trees, there are two methods to use: 1) Estimates heights according
 to a parametrized DBH-height model, or 2) Estimates heights by fitting a simple DBH-height model that requires at least
 10 measurements. Missing values are indentified as 'NA'.
 }
 \examples{
-# Example - Stand-level information from inventory data 
+# Example - Stand-level information from inventory data
 TREEID <- treedata$TREEID
 DBH <- treedata$DBH
 HT <- treedata$HT

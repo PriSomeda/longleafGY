@@ -14,22 +14,36 @@ AGEF, THINNING, AGET, BAR, t, d, method.}
 \value{
 A list containing a data frame (sim.stand) containing the columns below with simulations from
 AGE0 to AGEF and a logical value indicating if thinning was requested.
-\itemize{
-\item \code{AGE}     Stand age form simulations from AGE0 to AGEF (years).
-\item \code{HDOM}    Dominant Height (m).
-\item \code{SI}      Site Index (m).
-\item \code{BA}      Basal Area (m2/ha).
-\item \code{N}       Number of trees per hectare.
-\item \code{QD}      Mean quadratic diameter (cm).
-\item \code{SDIR}    Relative stand density index (\%).
-\item \code{VOL_OB}  Total stand-level volume outside bark (m3/ha).
-\item \code{VOL_IB}  Total stand-level volume inside bark (m3/ha).
-\item \code{VOLm_OB} Merchantable stand-level volume outside bark (m3/ha).
-\item \code{VOLm_IB} Merchantable stand-level volume inside bark (m3/ha).
-\item \code{CI}      Competition Index (required for THINNING=TRUE).
-\item \code{BAU}     Basal Area (m2/ha) of unthinned counterpart (required for THINNING=TRUE).
-\item \code{NU}      Number of trees per hectare of unthinned counterpart (required for THINNING=TRUE).
-}
+
+\code{- AGE}     Stand age form simulations from AGE0 to AGEF (years).
+
+\code{- HDOM}    Dominant Height (m).
+
+\code{- SI}      Site Index (m).
+
+\code{- BA}      Basal Area (m2/ha).
+
+\code{- N}       Number of trees per hectare.
+
+\code{- QD}      Mean quadratic diameter (cm).
+
+\code{- SDIR}    Relative stand density index (\%).
+
+\code{- VOL_OB}  Total stand-level volume outside bark (m3/ha).
+
+\code{- VOL_IB}  Total stand-level volume inside bark (m3/ha).
+
+\code{- VOLm_OB} Merchantable stand-level volume outside bark (m3/ha).
+
+\code{- VOLm_IB} Merchantable stand-level volume inside bark (m3/ha).
+
+\code{- CI}      Competition Index (required for THINNING=TRUE).
+
+\code{- BAU}     Basal Area (m2/ha) of unthinned counterpart (required for THINNING
+=TRUE).
+
+\code{- NU}      Number of trees per hectare of unthinned counterpart (required for THINNING=TRUE).
+
 }
 \description{
 \code{module.simulation} Performs model projections of a stand to a final age based on information provided

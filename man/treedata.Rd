@@ -6,13 +6,17 @@
 \title{Data from inventory at tree-level to test}
 \format{A data frame with 60 observations and 5 variables:
 \describe{
-\itemize{
-\item \code{PLOTID} Unique plot identification. For a single plot, all trees should have the same PLOTID.
-\item \code{TREEID} Unique tree identification. Must be complete.
-\item \code{DBH} Diameter at breast height (DBH, cm). Must ve the same size and order as TREEID.
-\item \code{HT} Total height (m). Must be of the same size and order as TREEID.
-\item \code{OBS} Aditional information about the tree.
-}}}
+
+\code{- PLOTID} Unique plot identification. For a single plot, all trees should have the same PLOTID.
+
+\code{- TREEID} Unique tree identification. Must be complete.
+
+\code{- DBH} Diameter at breast height (DBH, cm). Must ve the same size and order as TREEID.
+
+\code{- HT} Total height (m). Must be of the same size and order as TREEID.
+
+\code{- OBS} Aditional information about the tree.
+}}
 \source{
 \url{http://www.sfrc.ufl.edu/CFGRP/}
 }

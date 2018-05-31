@@ -17,13 +17,14 @@ module.VOL(N = NA, BA = NA, AGE = NA, SI = NA)
 }
 \value{
 A list containing the parameters:
-\itemize{ 
-\item \code{VOL_OB} Total stand-level volume outside bark (m3/ha).
-\item \code{VOL_IB} Total stand-level volume inside bark (m3/ha).
-}
+
+\code{- VOL_OB} Total stand-level volume outside bark (m3/ha).
+
+\code{- VOL_IB} Total stand-level volume inside bark (m3/ha).
+
 }
 \description{
-\code{module.VOL} Calculates the total stand-level volume inside and outside bark for a plot 
+\code{module.VOL} Calculates the total stand-level volume inside and outside bark for a plot
 based on the equation: ln(VOL) = d1 + d2xln(N) + d3xln(BA) + d4xln(BA/AGE) + d5xln(SI)
 }
 \examples{

@@ -13,11 +13,13 @@ tree.STAND(DBH, AREA)
 }
 \value{
 A list containing the parameters:
-\itemize{
-\item \code{BA} Basal Area (m2/ha).
-\item \code{N}  Number of trees per hectare.
-\item \code{QD} Mean Quadratic Diameter (cm).
-}
+
+\code{- BA} Basal Area (m2/ha).
+
+\code{- N}  Number of trees per hectare.
+
+\code{- QD} Mean Quadratic Diameter (cm).
+
 }
 \description{
 \code{tree.STAND} Calculates the basal area, number of trees and mean quadratic diameter for a plot based on tree-level data.

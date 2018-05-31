@@ -39,35 +39,54 @@ module.input(TYPE = "PLOT", TREEDATA = NA, AREA = NA, SI = NA,
 \item{d}{Numeric value of a DBH threshold limit for merchantable trees (cm).}
 
 \item{method}{Numeric value that identifies the method to estimate missing heights from TYPE='TREE'.
-1: parametrized DBH-height model that requires DBH, BA and AGE, 2: fits a simple DBH-height model from 
+1: parametrized DBH-height model that requires DBH, BA and AGE, 2: fits a simple DBH-height model from
 available measurements using the equation: ln(Ht) = b0 + b1/DBH. Default method=2.}
 }
 \value{
-A list containing the following: 
-\itemize{   
-\item \code{SI}       Site Index (m).
-\item \code{AGE0}     Initial stand age or age 0 (years).
-\item \code{HDOM0}    Dominant Height (m) at initial age (or age 0). 
-\item \code{BA0}      Basal Area (m2/ha) at age 0.
-\item \code{N0}       Number of trees per hectare at age 0. 
-\item \code{QD}       Mean quadratic diameter (cm) at age 0.
-\item \code{SDIR0}    Relative stand density index (\%) at age 0.
-\item \code{VOL_OB0}  Total stand-level volume outside bark (m3/ha) at age 0.
-\item \code{VOL_IB0}  Total stand-level volume inside bark (m3/ha) at age 0.
-\item \code{VOLm_OB0} Merchantable stand-level volume outside bark (m3/ha) at age 0.
-\item \code{VOLm_IB0} Merchantable stand-level volume inside bark (m3/ha) at age 0.
-\item \code{AGEF}     Final stand age (in years) of simulation.
-\item \code{THINNING} Logical that indicates if thinning is implemented according to AGET and BAR.
-\item \code{AGET}     Stand age (in years) where thinning is planned.
-\item \code{BAR}      Relative Basal Area (\%, 0-1) to be removed when thinning at age AGET.
-\item \code{t}        Top stem diameter outside bark for merchantability limit (cm).
-\item \code{d}        DBH threshold limit for merchantable trees (cm).
-\item \code{method}   Selection of the method to estimate missing heights from TYPE='TREE'.
-}
+A list containing the following:
+
+\code{- SI}       Site Index (m).
+
+\code{- AGE0}     Initial stand age or age 0 (years).
+
+\code{- HDOM0}    Dominant Height (m) at initial age (or age 0).
+
+\code{- BA0}      Basal Area (m2/ha) at age 0.
+
+\code{- N0}       Number of trees per hectare at age 0.
+
+\code{- QD}       Mean quadratic diameter (cm) at age 0.
+
+\code{- SDIR0}    Relative stand density index (\%) at age 0.
+
+\code{- VOL_OB0}  Total stand-level volume outside bark (m3/ha) at age 0.
+
+\code{- VOL_IB0}  Total stand-level volume inside bark (m3/ha) at age 0.
+
+\code{- VOLm_OB0} Merchantable stand-level volume outside bark (m3/ha) at age 0.
+
+\code{- VOLm_IB0} Merchantable stand-level volume inside bark (m3/ha) at age 0.
+
+\code{- AGEF}     Final stand age (in years) of simulation.
+
+\code{- THINNING} Logical that indicates if thinning is implemented according to
+AGET and BAR.
+
+\code{- AGET}     Stand age (in years) where thinning is planned.
+
+\code{- BAR}      Relative Basal Area (\%, 0-1) to be removed when thinning at age
+AGET.
+
+\code{- t}        Top stem diameter outside bark for merchantability limit (cm).
+
+\code{- d}        DBH threshold limit for merchantable trees (cm).
+
+\code{- method}   Selection of the method to estimate missing heights from TYPE='TREE'.
+
 }
 \description{
-\code{module.input} Prepares tree- or stand-level data from a single plot, checks and completes missing values, and 
-calculates several stand-level parameters including total volume. It also reads required information for further 
+\code{module.input} Prepares tree- or stand-level data from a single plot, checks and completes missing values, and
+calculates several stand-level parameters including total volume. It also reads required information for further
 simulations including simulation age and details of future thinning. Some information is only traspassed to other modules.
 Note that form tree-level data individual tree (complete or incomplete) information is required.
 }

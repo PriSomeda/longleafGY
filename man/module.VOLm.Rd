@@ -21,14 +21,15 @@ module.VOLm(N = NA, QD = NA, t = NA, d = NA, VOL_OB = NA,
 \item{VOL_IB}{Total stand-level volume inside bark (m3/ha).}
 }
 \value{
-A list containing the parameters: 
-\itemize{
-\item \code{VOLm_OB} Merchantable stand-level volume outside bark (m3/ha).
-\item \code{VOLm_IB} Merchantable stand-level volume inside bark (m3/ha).
-}
+A list containing the parameters:
+
+\code{- VOLm_OB} Merchantable stand-level volume outside bark (m3/ha).
+
+\code{- VOLm_IB} Merchantable stand-level volume inside bark (m3/ha).
+
 }
 \description{
-\code{module.VOLm} Calculates the stand-level merchantable volume inside and outside bark fro a plot 
+\code{module.VOLm} Calculates the stand-level merchantable volume inside and outside bark fro a plot
 based on the equation:  VOLm = VOL x exp(m1 x ((t/QD)^m2) + m3 x (N^m4) x (d/QD)^m5)
 }
 \examples{

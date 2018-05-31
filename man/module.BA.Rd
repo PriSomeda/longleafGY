@@ -22,10 +22,11 @@ module.BA(N0 = NA, HDOM0 = NA, projection = FALSE, BA0 = NA, N1 = NA,
 }
 \value{
 A list containing:
-\itemize{
-\item \code{BA0} Predicted Basal Area at age 0 (m2/ha).
-\item \code{BA1} Projected Basal Area at age 1 (m2/ha).
-}
+
+\code{- BA0} Predicted Basal Area at age 0 (m2/ha).
+
+\code{- BA1} Projected Basal Area at age 1 (m2/ha).
+
 }
 \description{
 \code{module.BA} Predicts and projects stand basal area based on number of trees per hectare and
