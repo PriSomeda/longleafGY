@@ -62,54 +62,54 @@
 
 module.simulation <- function(stand=NULL){
 
-    # Errors with Age
-    if(is.na(stand$AGEF)){
-      print('There is no final age for simulation ')
-    }  else if(stand$AGE0 >= stand$AGEF){
-      stop('The Final age of simulation should be larger than the Initial Age')
-    }
+  # Errors with Age
+  if(is.na(stand$AGEF)){
+    print('There is no final age for simulation ')
+  }  else if(stand$AGE0 >= stand$AGEF){
+    stop('The Final age of simulation should be larger than the Initial Age')
+  }
 
-    HDOM0 <- stand$HDOM0
-    SI <- stand$SI
-    AGE0 <- stand$AGE0
-    BA0 <- stand$BA0
-    N0 <- stand$N0
-    QD0 <- stand$QD0
-    SDIR0 <- stand$SDIR0
-    VOL_OB0 <- stand$VOL_OB0
-    VOL_IB0 <- stand$VOL_IB0
-    VOLm_OB0 <- stand$VOLm_OB0
-    VOLm_IB0 <- stand$VOLm_IB0
-    AGEF <- stand$AGEF
-    THINNING <- stand$THINNING
-    AGET <- stand$AGET
-    BAR <- stand$BAR
-    t <- stand$t
-    d <- stand$d
+  HDOM0 <- stand$HDOM0
+  SI <- stand$SI
+  AGE0 <- stand$AGE0
+  BA0 <- stand$BA0
+  N0 <- stand$N0
+  QD0 <- stand$QD0
+  SDIR0 <- stand$SDIR0
+  VOL_OB0 <- stand$VOL_OB0
+  VOL_IB0 <- stand$VOL_IB0
+  VOLm_OB0 <- stand$VOLm_OB0
+  VOLm_IB0 <- stand$VOLm_IB0
+  AGEF <- stand$AGEF
+  THINNING <- stand$THINNING
+  AGET <- stand$AGET
+  BAR <- stand$BAR
+  t <- stand$t
+  d <- stand$d
 
-    # Stop if any is missing
-    if(is.na(HDOM0)==T | is.na(SI)==T | is.na(AGE0)==T | is.na(BA0)==T |
-       is.na(N0)==T | is.na(QD0)==T | is.na(SDIR0)==T | is.na(VOL_OB0)==T | is.na(VOL_IB0)==T |
-       is.na(AGEF)==T | is.na(t)==T | is.na(d)==T) {
-       stop("Warning - Please provide information required for simulation")
-    }
+  # Stop if any is missing
+  if(is.na(HDOM0)==TRUE | is.na(SI)==TRUE | is.na(AGE0)==TRUE | is.na(BA0)==TRUE |
+     is.na(N0)==TRUE | is.na(QD0)==TRUE | is.na(SDIR0)==TRUE | is.na(VOL_OB0)==TRUE | is.na(VOL_IB0)==TRUE |
+     is.na(AGEF)==TRUE | is.na(t)==TRUE | is.na(d)==TRUE) {
+    stop("Warning - Please provide information required for simulation")
+  }
 
-    # Creating vectors for table
-    sim.stand <- data.frame(AGE = AGE0,
-                            HDOM = HDOM0,
-                            SI = SI,
-                            BA = BA0,
-                            N = N0,
-                            QD = QD0,
-                            SDIR = SDIR0,
-                            VOL_OB = VOL_OB0,
-                            VOL_IB = VOL_IB0,
-                            VOLm_OB = VOLm_OB0,
-                            VOLm_IB = VOLm_IB0,
-                            CI = 0,
-                            BAU = BA0,
-                            NU = N0
-    )
+  # Creating vectors for table
+  sim.stand <- data.frame(AGE = AGE0,
+                          HDOM = HDOM0,
+                          SI = SI,
+                          BA = BA0,
+                          N = N0,
+                          QD = QD0,
+                          SDIR = SDIR0,
+                          VOL_OB = VOL_OB0,
+                          VOL_IB = VOL_IB0,
+                          VOLm_OB = VOLm_OB0,
+                          VOLm_IB = VOLm_IB0,
+                          CI = 0,
+                          BAU = BA0,
+                          NU = N0
+  )
 
 
   # No thinning

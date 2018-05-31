@@ -17,20 +17,20 @@
 
 tree.HDOM  <-  function(HT=NA){
 
-                  if(sum(is.na(HT))==0){
+  if(sum(is.na(HT))==0){
 
-                    HT <- sort(HT, decreasing = T)
-                    H75 <- as.vector(stats::quantile(HT, 0.75))
-                    HT <- subset(HT,HT>=H75)
-                    HDOM <- mean(HT)
+    HT <- sort(HT, decreasing = TRUE)
+    H75 <- as.vector(stats::quantile(HT, 0.75))
+    HT <- subset(HT,HT>=H75)
+    HDOM <- mean(HT)
 
-                  } else {
+  } else {
 
-                      stop("Error: Not enought height measurements to fit model.")
+    stop("Error: Not enought height measurements to fit model.")
 
-                  }
+  }
 
-    return(HDOM=HDOM)
+  return(HDOM=HDOM)
 
 }
 

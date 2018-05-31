@@ -23,17 +23,17 @@
 
 tree.STAND  <-  function(DBH, AREA){
 
-                      if(AREA!=0){
+  if(AREA!=0){
 
-                         EF <- 10000/AREA   # Expansion factor
-                         BA <- (sum(((pi/4)*(DBH)^2)*0.0001))*EF
-                         N <- length(DBH)*EF
-                         QD <- (sqrt((4/pi)*(BA/N))*100)
+    EF <- 10000/AREA   # Expansion factor
+    BA <- (sum(((pi/4)*(DBH)^2)*0.0001))*EF
+    N <- length(DBH)*EF
+    QD <- (sqrt((4/pi)*(BA/N))*100)
 
-                      } else {
-                          stop("Error: Not enought height measurements to fit model.")
-                      }
+  } else {
+    stop("Error: Not enought height measurements to fit model.")
+  }
 
-                      return(list(BA=BA, N=N, QD=QD))
+  return(list(BA=BA, N=N, QD=QD))
 
-                    }
+}

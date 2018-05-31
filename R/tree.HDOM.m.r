@@ -20,24 +20,24 @@
 
 
 tree.HDOM.m  <-  function(HT=NA, DBH=NA, AREA=NA){
-                  if(sum(is.na(HT))==0 & sum(is.na(DBH))==0){
-                    if(length(HT)==length(DBH)){
-                      aux <- data.frame(DBH=DBH,HT=HT,EF=rep(1/(AREA/10000), length(HT)))
-                    }
-                    aux <- aux[order(-aux$DBH),]
-                    i <- 1
-                    trees <- aux$EF[1]
-                    HDOM <- aux$HT[1]
+  if(sum(is.na(HT))==0 & sum(is.na(DBH))==0){
+    if(length(HT)==length(DBH)){
+      aux <- data.frame(DBH=DBH,HT=HT,EF=rep(1/(AREA/10000), length(HT)))
+    }
+    aux <- aux[order(-aux$DBH),]
+    i <- 1
+    trees <- aux$EF[1]
+    HDOM <- aux$HT[1]
 
-                    while(trees<100){
-                      trees <- sum(aux$EF[1:i])
-                      wi <- c(rep(1,i-1),(1-((trees-100)/100)))/sum(c(rep(1,i-1),(1-((trees-100)/100))))
-                      HDOM <- stats::weighted.mean(aux$HT[1:i],wi)
-                      i <- i+1
-                    }
-                  } else {
-                      stop("Error: Missing information")
-                  }
-            return(HDOM=HDOM)
-          }
+    while(trees<100){
+      trees <- sum(aux$EF[1:i])
+      wi <- c(rep(1,i-1),(1-((trees-100)/100)))/sum(c(rep(1,i-1),(1-((trees-100)/100))))
+      HDOM <- stats::weighted.mean(aux$HT[1:i],wi)
+      i <- i+1
+    }
+  } else {
+    stop("Error: Missing information")
+  }
+  return(HDOM=HDOM)
+}
 

@@ -1,8 +1,8 @@
 #' Predicts and projects stand basal area based on stand-level information.
-#' 
+#'
 #' \code{module.BA} Predicts and projects stand basal area based on number of trees per hectare and
 #' dominant height at the stand-level using the equation: ln(BA) = c1 + c2 x ln(N) + c3 x ln(HDOM)
-#' 
+#'
 #' @export
 #' @author Priscila Someda-Dias, Salvador A. Gezan
 #'
@@ -39,37 +39,37 @@
 
 module.BA  <-  function(N0=NA, HDOM0=NA, projection=FALSE, BA0=NA, N1=NA, HDOM1=NA){
 
-                      # ln(BA)=c1+c2*ln(N)+c3*ln(Hdom)
-                      c1 <- -4.6484039
-                      c2 <- 0.4452486
-                      c3 <- 1.6526307
+  # ln(BA)=c1+c2*ln(N)+c3*ln(Hdom)
+  c1 <- -4.6484039
+  c2 <- 0.4452486
+  c3 <- 1.6526307
 
-          if(is.na(N0)==T && is.na(HDOM0)==T |
-             is.na(N0)==T && is.na(HDOM0)==F |
-             is.na(N0)==F && is.na(HDOM0)==T){
-             stop("Warning - Please provide information required.")
-          }
+  if(is.na(N0)==TRUE && is.na(HDOM0)==TRUE |
+     is.na(N0)==TRUE && is.na(HDOM0)==FALSE |
+     is.na(N0)==FALSE && is.na(HDOM0)==TRUE){
+    stop("Warning - Please provide information required.")
+  }
 
-          # Prediction
-          if (projection==FALSE){
+  # Prediction
+  else if (projection==FALSE){
 
-            BA0 <- exp(c1+c2*log(N0)+c3*log(HDOM0))
-            BA1 <- NA
+    BA0 <- exp(c1+c2*log(N0)+c3*log(HDOM0))
+    BA1 <- NA
 
-          }
+  }
 
-         # Projection
-         if (projection==TRUE){
+  # Projection
+  else if (projection==TRUE){
 
-           if(is.na(BA0)==T | is.na(N1)==T | is.na(HDOM1)==T){
-             print("Warning - Please provide information required for projection.")
-           }
+    if(is.na(BA0)==TRUE | is.na(N1)==TRUE | is.na(HDOM1)==TRUE){
+      stop("Warning - Please provide information required for projection.")
+    }
 
-           BA1 <- BA0*(1+c2*(N1-N0)/N0+c3*(HDOM1-HDOM0)/HDOM0)   # Linear model with approx. deriv.
-           #BA1 <- BA0*exp(c2*(N1-N0)/N0+c3*(HDOM1-HDOM0)/HDOM0) # Exp. model with approx. deriv.
+    BA1 <- BA0*(1+c2*(N1-N0)/N0+c3*(HDOM1-HDOM0)/HDOM0)   # Linear model with approx. deriv.
+    #BA1 <- BA0*exp(c2*(N1-N0)/N0+c3*(HDOM1-HDOM0)/HDOM0) # Exp. model with approx. deriv.
 
-         }
+  }
 
-        return(list(BA0=BA0, BA1=BA1))
+  return(list(BA0=BA0, BA1=BA1))
 
 }

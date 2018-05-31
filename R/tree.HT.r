@@ -44,52 +44,52 @@
 
 tree.HT  <-  function(DBH, HT, AREA=NA, AGE=NA, BA=NA, method=2){
 
-                        if(length(DBH)==length(HT) & sum(is.na(DBH))==0){
+  if(length(DBH)==length(HT) & sum(is.na(DBH))==0){
 
-                          if(method==1){
+    if(method==1){
 
-                            if(is.na(AGE)==T | is.na(AREA)==T && is.na(BA)==T){
-                              stop("Warning - Incomplete information. Please check input.")
-                            }
+      if(is.na(AGE)==TRUE | is.na(AREA)==TRUE && is.na(BA)==TRUE){
+        stop("Warning - Incomplete information. Please check input.")
+      }
 
-                            if(is.na(AGE)==F){
+      else if(is.na(AGE)==FALSE){
 
-                              if(is.na(AREA)==F & is.na(BA)==T){
-                                BA <- tree.STAND(DBH=DBH, AREA=AREA)$BA
-                              }
+        if(is.na(AREA)==FALSE & is.na(BA)==TRUE){
+          BA <- tree.STAND(DBH=DBH, AREA=AREA)$BA
+        }
 
-                              a1 <- 0.059425
-                              a2 <- -10.803775
-                              a3 <- -1.127503
-                              a4 <- 0.150532
-                              a5 <- 0.121239
+        a1 <- 0.059425
+        a2 <- -10.803775
+        a3 <- -1.127503
+        a4 <- 0.150532
+        a5 <- 0.121239
 
-                              aux <- data.frame(DBH=DBH, HT=HT, HTEST=NA, HTFIN=NA)
-                              aux$HTEST <- 1.37+exp(a1 + (a2*(aux$DBH^a3)) + (AGE^a4) + (BA^a5))
-                              aux$HTFIN <- ifelse(is.na(aux$HT),aux$HTEST,aux$HT)
-                              r2 <- NA
+        aux <- data.frame(DBH=DBH, HT=HT, HTEST=NA, HTFIN=NA)
+        aux$HTEST <- 1.37+exp(a1 + (a2*(aux$DBH^a3)) + (AGE^a4) + (BA^a5))
+        aux$HTFIN <- ifelse(is.na(aux$HT),aux$HTEST,aux$HT)
+        r2 <- NA
 
-                            }
+      }
 
-                          }
+    }
 
-                          if(method==2){
+    else if(method==2){
 
-                            aux <- data.frame(DBH=DBH, HT=HT)
-                            aux2 <-subset(aux, HT!='NA')
-                            model <- stats::lm(log(aux2$HT)~I(1/aux2$DBH),na.action='na.omit')
-                            r2 <- summary(model)$r.squared
-                            HTEST <- exp(model$coefficients[1]+model$coefficients[2]/DBH)
-                            aux$HTFIN <- ifelse(is.na(aux$HT),HTEST,aux$HT)
+      aux <- data.frame(DBH=DBH, HT=HT)
+      aux2 <-subset(aux, HT!='NA')
+      model <- stats::lm(log(aux2$HT)~I(1/aux2$DBH),na.action='na.omit')
+      r2 <- summary(model)$r.squared
+      HTEST <- exp(model$coefficients[1]+model$coefficients[2]/DBH)
+      aux$HTFIN <- ifelse(is.na(aux$HT),HTEST,aux$HT)
 
-                          }
+    }
 
-                        } else {
+  } else {
 
-                          stop("Warning - Incomplete information. Please check input.")
+    stop("Warning - Incomplete information. Please check input.")
 
-                          }
+  }
 
-                  return(list(HTFIN=aux$HTFIN, r2=r2))
+  return(list(HTFIN=aux$HTFIN, r2=r2))
 
 }
